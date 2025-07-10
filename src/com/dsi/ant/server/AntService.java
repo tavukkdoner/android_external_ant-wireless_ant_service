@@ -568,12 +568,12 @@ public class AntService extends Service
         IntentFilter filter = new IntentFilter();
         filter.addAction(ACTION_REQUEST_ENABLE);
         filter.addAction(ACTION_REQUEST_DISABLE);
-        registerReceiver(mReceiver, filter);
+        registerReceiver(mReceiver, filter, Context.RECEIVER_NOT_EXPORTED);
 
         if (mRequiresBluetoothOn) {
             IntentFilter stateChangedFilter = new IntentFilter();
             stateChangedFilter.addAction(BluetoothAdapter.ACTION_STATE_CHANGED);
-            registerReceiver(mStateChangedReceiver, stateChangedFilter);
+            registerReceiver(mStateChangedReceiver, stateChangedFilter, Context.RECEIVER_NOT_EXPORTED);
         }
     }
 
